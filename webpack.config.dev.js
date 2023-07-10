@@ -4,12 +4,17 @@ module.exports = {
   output: {
     //punto de salida del proyecto optimizado y terminado
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js', //nombre del archivo optimizado(el index.js)
+    filename: 'bundle.js', //nombre del archivo optimizado(el index.js)
     publicPath: '/',
+  },
+  mode: 'development',
+  resolve: {
+    //Para identificar con que extensiones va a trabajar
+    extensions: ['.js'],
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, './'),
     },
     compress: true,
     historyApiFallback: true, //para tener un historial
