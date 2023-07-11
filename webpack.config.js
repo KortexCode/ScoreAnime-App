@@ -53,8 +53,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
-  /* optimization: {
+  optimization: {
     minimize: true,
     minimizer: [new TeserPlugin(), new CssMinimizerPlugin()],
-  }, */
+  },
 };

@@ -3,7 +3,7 @@ import '../styles.css';
 /* const h = require('hyperscript'); */
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api.js';
 import CarouselItem from './CarouselItem.js';
-console.log('gola papussdfdsss');
+console.log('gola papus');
 
 const SectionTitle = title => h('h3.carousel-title', title);
 
