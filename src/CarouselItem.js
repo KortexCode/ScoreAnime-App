@@ -1,5 +1,7 @@
 import h from 'hyperscript';
 import moment from 'moment';
+import playIco from '../assets/play-icon.png';
+import plusIco from '../assets/plus-icon.png';
 
 //Esta función da formato a la fecha a la propiedad startDate del objeto
 //que trae todas las propiedades de cada anime
@@ -19,7 +21,7 @@ const Controls = ({ slug, youtubeVideoId }) =>
         rel: 'noreferrer',
       },
       h('img', {
-        src: 'assets/play-icon.png',
+        src: playIco,
         alt: 'Play',
       }),
     ),
@@ -32,7 +34,7 @@ const Controls = ({ slug, youtubeVideoId }) =>
         rel: 'noreferrer',
       },
       h('img', {
-        src: 'assets/plus-icon.png',
+        src: plusIco,
         alt: 'More info',
       }),
     ),

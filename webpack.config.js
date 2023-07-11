@@ -15,6 +15,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js', //nombre del archivo optimizado(el index.js)
     publicPath: './',
+    assetModuleFilename: 'assets/[hash][ext]',
   },
   mode: 'production',
   resolve: {
@@ -39,6 +40,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        type: 'asset/resource',
       },
     ],
   },
