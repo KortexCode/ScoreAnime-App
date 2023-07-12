@@ -1,6 +1,5 @@
 import h from 'hyperscript';
 import '../styles.css';
-/* const h = require('hyperscript'); */
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api.js';
 import CarouselItem from './CarouselItem.js';
 console.log('gola papus');
@@ -28,7 +27,7 @@ const Carousel = ({ itemsList = [] }) =>
     ),
   );
 
-window.addEventListener('DOMContentLoaded', async () => {
+(async function (document) {
   const mountReference = document.querySelector('.main').lastElementChild;
 
   if (!mountReference) {
@@ -61,4 +60,4 @@ window.addEventListener('DOMContentLoaded', async () => {
         itemsList: popular,
       }),
     );
-});
+})(document, window);

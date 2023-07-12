@@ -124,7 +124,7 @@ ul:hover {
 
 .main h2 {
   color: white;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 body .main .search-input {
@@ -275,9 +275,9 @@ footer a:hover {
  * Media Queries
  *******************************************
  */
-@media only screen and (max-width: 600px) {
+ @media only screen and (min-width: 600px) {
   .main h2 {
-    font-size: 24px;
+    font-size: 30px;
   }
 
   footer {
