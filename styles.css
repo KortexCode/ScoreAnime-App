@@ -92,13 +92,13 @@ ul:hover {
   text-decoration: underline;
 }
 
-.menu > div {
+.menu__profile-container {
   align-items: center;
   display: flex;
   cursor: pointer;
 }
 
-.menu > div > img {
+.menu__user-icon {
   margin-right: 8px;
   width: 40px;
 }
@@ -175,7 +175,7 @@ footer a:hover {
   position: relative;
 }
 
-.carousel > div {
+.carousel__container {
   font-size: 0;
   white-space: nowrap;
   margin: 70px 0px;
@@ -210,7 +210,7 @@ footer a:hover {
   transform-origin: center left;
 }
 /* Change opacity to all items that not be hover when their parent div is hover */
-.carousel > div:hover .carousel-item:not(:hover) {
+.carousel__container:hover .carousel-item:not(:hover) {
   opacity: 0.3;
 }
 /* Scale up current */
@@ -218,11 +218,12 @@ footer a:hover {
   transform: scale(1.5);
 }
 /* Move subsecuent item */
-.carousel-item:hover + .carousel-item {
-  transform: translateX(100px)
+.carousel-item:hover ~ .carousel-item {
+  transform: translateX(100px);
+  /* margin-left: 100px; */
 }
 
-.carousel-item > img {
+.carousel-item__img {
   width: 200px;
   height: 250px;
   object-fit: cover;
@@ -230,7 +231,7 @@ footer a:hover {
   border-radius: 20px;
 }
 
-.carousel-item > div {
+.carousel-item__info {
   overflow: hidden;
   border-radius: 20px;
   align-items: flex-start;
@@ -252,27 +253,28 @@ footer a:hover {
   right: 0;
   top: 0;
 }
-.carousel-item:hover > div {
+.carousel-item:hover .carousel-item__info {
   opacity: 1;
 }
 
-.carousel-item > div > div a > img {
+.carusel-item__icon {
   width: 20px;
 }
 
 /* Title */
-.carousel-item > div > p:nth-of-type(1) {
-  color: white;
+.carousel-item__title {
   margin: 5px 0px 0px 0px;
+  color: rgb(255, 255, 255);
+  white-space:normal;
 }
 /* Subtitle */
-.carousel-item > div > p:nth-of-type(2) {
+.carousel-item__subtitle {
   color: white;
   font-size: 7px;
   margin: 3px 0px;
 }
 /* Date */
-.carousel-item > div > p:nth-of-type(3) {
+.carousel-item__date {
   color: white;
   font-size: 6px;
   margin: 0px;

@@ -2,7 +2,7 @@ import h from 'hyperscript';
 import '../styles.css';
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api.js';
 import CarouselItem from './CarouselItem.js';
-console.log('gola papus');
+console.log('gola papees');
 
 const SectionTitle = title => h('h3.carousel-title', title);
 
@@ -10,7 +10,7 @@ const Carousel = ({ itemsList = [] }) =>
   h(
     'section.carousel',
     h(
-      'div',
+      'div.carousel__container',
       itemsList.map(
         ({
           attributes: { titles, posterImage, slug, youtubeVideoId, startDate },
