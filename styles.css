@@ -2,6 +2,13 @@
  * Home page
  *******************************************
  */
+@font-face {
+  font-family: "Muli";
+  src: url("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 body {
   margin: 0;
   font-family: 'Muli', sans-serif;
@@ -169,10 +176,11 @@ footer a:hover {
 }
 
 .carousel {
-  overflow: scroll;
-  padding-left: 30px;
   width: 100%;
+  height: 430px;
+  padding-left: 30px;
   position: relative;
+  overflow-x: scroll;
 }
 
 .carousel__container {

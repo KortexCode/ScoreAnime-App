@@ -1,5 +1,4 @@
 import _ from 'lodash';
-/* const _ = require('lodash'); */
 
 const BASE_URL = 'https://kitsu.io/api/edge';
 const PER_PAGE = 7;
