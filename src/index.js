@@ -17,6 +17,7 @@ const Carousel = ({ itemsList = [] }) =>
         }) =>
           CarouselItem({
             imageUrl: posterImage.medium,
+            imageUrlSmall: posterImage.small,
             title: titles.en,
             subtitle: titles.ja_jp,
             slug,
