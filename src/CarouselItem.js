@@ -7,6 +7,7 @@ import { observer } from './ImgObserver';
 //que trae todas las propiedades de cada anime
 const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow();
 
+//Función crea la etique <source>
 const sourceCreator = imageUrlSmall => {
   const img = h('source', {
     srcset:
@@ -14,9 +15,11 @@ const sourceCreator = imageUrlSmall => {
     media: '(max-width: 600px)',
     'data-src': imageUrlSmall,
   });
-  observer.observe(img);
+  observer.observe(img); //Observador de la etiqueda
   return img;
 };
+
+//Función creadora de etiqueta <img>
 const imgCreator = imageUrl => {
   const img = h('img.carousel-item__img', {
     src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=',
@@ -26,6 +29,7 @@ const imgCreator = imageUrl => {
   observer.observe(img);
   return img;
 };
+
 //Función que construye un elementos html y sus hijos para establecer
 //datos entregados por el objeto que contiene las propiedades del anime
 const Controls = ({ slug, youtubeVideoId }) =>

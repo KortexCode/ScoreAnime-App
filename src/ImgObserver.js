@@ -3,7 +3,9 @@ const callback = entries => {
     .filter(entry => entry.isIntersecting)
     .forEach(entryImg => {
       const img = entryImg.target;
-      const { src } = img.dataset;
+      const { src } = img.dataset; // Se extrae la url del data-set
+
+      //Se verifica si es una etiqueta <source> o <img>
       if (img.getAttribute('srcset')) {
         img.setAttribute('srcset', src);
       } else {
@@ -14,4 +16,5 @@ const callback = entries => {
     });
 };
 
+//Se crea un observador sin parámetro de "options"
 export const observer = new IntersectionObserver(callback);
