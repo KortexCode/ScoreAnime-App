@@ -2,7 +2,24 @@ const path = require('path'); //nos permite saber donde está ubicado este proye
 //PLUGINS
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+const plugins = [
+  new HtmlWebpackPlugin({
+    title: 'Score Anime',
+    inject: true,
+    template: './index.html',
+  }),
+  new MiniCssExtractPlugin({
+    filename: 'style.css',
+  }),
+];
+//Se agregará a los plugins dependiendo del comando usado en npm
+const shouldAnalyze = process.argv.includes('--analyze');
+if (shouldAnalyze) {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 module.exports = {
   entry: './src/index.js', //punto de entrada del proyecto
   output: {
@@ -41,16 +58,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Score Anime',
-      inject: true,
-      template: './index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
-  ],
+  plugins,
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),

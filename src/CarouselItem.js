@@ -6,12 +6,13 @@ import { observer } from './ImgObserver';
 //Esta función da formato a la fecha a la propiedad startDate del objeto
 //que trae todas las propiedades de cada anime
 const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow();
+const EMPTYIMG =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=';
 
 //Función crea la etique <source>
 const sourceCreator = imageUrlSmall => {
   const img = h('source', {
-    srcset:
-      'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=',
+    srcset: EMPTYIMG,
     media: '(max-width: 600px)',
     'data-src': imageUrlSmall,
   });
@@ -22,7 +23,7 @@ const sourceCreator = imageUrlSmall => {
 //Función creadora de etiqueta <img>
 const imgCreator = imageUrl => {
   const img = h('img.carousel-item__img', {
-    src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=',
+    src: EMPTYIMG,
     alt: 'anime image',
     'data-src': imageUrl,
   });
