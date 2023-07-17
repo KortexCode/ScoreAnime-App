@@ -33,7 +33,7 @@ module.exports = {
   output: {
     //punto de salida del proyecto optimizado y terminado
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js', //nombre del archivo optimizado(el index.js)
+    filename: '[name].bundle.js', //nombre del archivo optimizado(el index.js)
     publicPath: './',
     assetModuleFilename: 'assets/[hash][ext]',
   },
@@ -71,5 +71,9 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [new TeserPlugin(), new CssMinimizerPlugin()],
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
   },
 };
