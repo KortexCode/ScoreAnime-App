@@ -7,6 +7,26 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //Minizar JS y Css
 const TeserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const plugins = [
+  new HtmlWebpackPlugin({
+    title: 'Score Anime',
+    inject: true,
+    template: './index.html',
+  }),
+  new MiniCssExtractPlugin({
+    filename: 'style.css',
+  }),
+  new CleanWebpackPlugin(),
+];
+
+//Se agregará a los plugins dependiendo del comando usado en npm
+const shouldAnalyze = process.argv.includes('--analyze');
+if (shouldAnalyze) {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = {
   entry: './src/index.js', //punto de entrada del proyecto
@@ -47,17 +67,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Score Anime',
-      inject: true,
-      template: './index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
-    new CleanWebpackPlugin(),
-  ],
+  plugins,
   optimization: {
     minimize: true,
     minimizer: [new TeserPlugin(), new CssMinimizerPlugin()],

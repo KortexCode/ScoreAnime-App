@@ -1,11 +1,12 @@
 import h from 'hyperscript';
-import moment from 'moment';
+import formatDistance from 'date-fns/formatDistance';
+import parseIso from 'date-fns/parseISO';
 import playIco from '../assets/play-icon.png';
 import plusIco from '../assets/plus-icon.png';
 import { observer } from './ImgObserver';
-//Esta función da formato a la fecha a la propiedad startDate del objeto
-//que trae todas las propiedades de cada anime
-const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow();
+//Se obtiene la fecha relativa según la fecha de lanzamiento del anime
+const relativeDate = dateStr => formatDistance(parseIso(dateStr), new Date());
+
 const EMPTYIMG =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=';
 
