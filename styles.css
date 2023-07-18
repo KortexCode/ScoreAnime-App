@@ -231,7 +231,12 @@ footer a:hover {
   transform: translateX(100px);
   /* margin-left: 100px; */
 }
-
+/* Styles for play icon */
+.carusel-item__link {
+  max-width: 30px;
+  display: inline-block;
+  line-height: 0;
+}
 .carousel-item__img {
   width: 200px;
   height: 250px;

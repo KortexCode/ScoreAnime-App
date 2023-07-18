@@ -2,6 +2,7 @@ import h from 'hyperscript';
 import '../styles.css';
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api.js';
 import CarouselItem from './CarouselItem.js';
+import { modalListener } from './trailerModal';
 console.log('gola papees');
 
 const SectionTitle = title => h('h3.carousel-title', title);
@@ -61,4 +62,31 @@ const Carousel = ({ itemsList = [] }) =>
         itemsList: popular,
       }),
     );
+
+  //Agrega eventos al icono de botón de ver trailer en cada carusel-item
+  eventHandlerPlayIcon();
 })(document, window);
+
+function eventHandlerPlayIcon() {
+  //Una vez creados los elemento por hyperscript ahora podemos seleccionarlos
+  //Se obtienen los contenedores de los caruseles
+  const carouselContainer = document.querySelectorAll('.carousel__container');
+  const carouselContainerList = Array.from(carouselContainer);
+  //A cada uno le será agregado un manejador de evento
+  carouselContainerList.forEach(container => {
+    container.addEventListener('click', event => {
+      //Aquí están los ids de la etiquetas que se desean. Esto es usado para evitar magic strings
+      const ids = {
+        tagA: 'carusel-item__youtube-link',
+        tagImg: 'carusel-item__play-icon-img',
+      };
+      //Se verifica si el elemento clickeado tiene el id del icono(<img>) o el link(<a>)
+      const id = event.target.id;
+      if (id === ids.tagA || id === ids.tagImg) {
+        //Si se cumple se evitará la carga de la imagen y se enviará el "event"
+        event.preventDefault();
+        modalListener(event, id, ids);
+      }
+    });
+  });
+}

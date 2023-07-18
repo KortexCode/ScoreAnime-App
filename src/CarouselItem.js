@@ -36,22 +36,25 @@ const imgCreator = imageUrl => {
 //datos entregados por el objeto que contiene las propiedades del anime
 const Controls = ({ slug, youtubeVideoId }) =>
   h(
-    'div',
+    'div.controls',
     h(
-      'a',
+      'a.carusel-item__link',
       {
         href: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
+        'data-video_id': youtubeVideoId,
         title: 'Watch trailer',
         target: '_blank',
         rel: 'noreferrer',
+        id: 'carusel-item__youtube-link',
       },
       h('img.carusel-item__icon', {
+        id: 'carusel-item__play-icon-img',
         src: playIco,
         alt: 'Play',
       }),
     ),
     h(
-      'a',
+      'a.carusel-item__link',
       {
         href: `https://kitsu.io/explore/anime/${slug}`,
         title: 'See more',
