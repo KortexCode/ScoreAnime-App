@@ -1,9 +1,7 @@
 import h from 'hyperscript';
-import '../styles.css';
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api.js';
 import CarouselItem from './CarouselItem.js';
-import { modalListener } from './trailerModal';
-console.log('gola papees');
+import '../styles.css';
 
 const SectionTitle = title => h('h3.carousel-title', title);
 
@@ -85,7 +83,11 @@ function eventHandlerPlayIcon() {
       if (id === ids.tagA || id === ids.tagImg) {
         //Si se cumple se evitará la carga de la imagen y se enviará el "event"
         event.preventDefault();
-        modalListener(event, id, ids);
+        import(/* webpackChunkName: "modal" */ './trailerModal')
+          .then(({ modalListener }) => {
+            modalListener(event, id, ids);
+          })
+          .catch(error => 'An error occurred while loading the component');
       }
     });
   });

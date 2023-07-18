@@ -34,7 +34,7 @@ module.exports = {
     //punto de salida del proyecto optimizado y terminado
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js', //nombre del archivo optimizado(el index.js)
-    publicPath: './',
+    publicPath: '/',
     assetModuleFilename: 'assets/[hash][ext]',
   },
   mode: 'production',
@@ -74,6 +74,12 @@ module.exports = {
     splitChunks: {
       // include all types of chunks
       chunks: 'all',
+      cacheGroups: {
+        defaultVendors: {
+          filename: '[name].bundle.js',
+          idHint: 'vendors',
+        },
+      },
     },
   },
 };
