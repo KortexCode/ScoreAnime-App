@@ -48,5 +48,8 @@
     "semi": true,
     "singleQuote": true,
     "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "isomorphic-unfetch": "^4.0.2"
   }
 }

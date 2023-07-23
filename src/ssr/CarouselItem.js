@@ -1,9 +1,9 @@
-import h from 'hyperscript';
-import formatDistance from 'date-fns/formatDistance';
-import parseIso from 'date-fns/parseISO';
-import playIco from '../assets/play-icon.png';
-import plusIco from '../assets/plus-icon.png';
-import { observer } from './ImgObserver';
+const h = require('hyperscript');
+const formatDistance = require('date-fns/formatDistance');
+const parseIso = require('date-fns/parseISO');
+/* const playIco = require('../../assets/play-icon.png');
+const plusIco = require('../../assets/plus-icon.png'); */
+/* import { observer } from './ImgObserver'; */
 //Se obtiene la fecha relativa según la fecha de lanzamiento del anime
 const relativeDate = dateStr => formatDistance(parseIso(dateStr), new Date());
 
@@ -17,7 +17,7 @@ const sourceCreator = imageUrlSmall => {
     media: '(max-width: 600px)',
     'data-src': imageUrlSmall,
   });
-  observer.observe(img); //Observador de la etiqueda
+  /* observer.observe(img); */ //Observador de la etiqueda
   return img;
 };
 
@@ -28,7 +28,7 @@ const imgCreator = imageUrl => {
     alt: 'anime image',
     'data-src': imageUrl,
   });
-  observer.observe(img);
+  /* observer.observe(img); */
   return img;
 };
 
@@ -49,7 +49,7 @@ const Controls = ({ slug, youtubeVideoId }) =>
       },
       h('img.carusel-item__icon', {
         id: 'carusel-item__play-icon-img',
-        src: playIco,
+        src: /* playIco */ 'assets/play-icon.png',
         alt: 'Play',
       }),
     ),
@@ -62,7 +62,7 @@ const Controls = ({ slug, youtubeVideoId }) =>
         rel: 'noreferrer',
       },
       h('img.carusel-item__icon', {
-        src: plusIco,
+        src: /* plusIco */ 'assets/plus-icon.png',
         alt: 'More info',
       }),
     ),
@@ -90,4 +90,4 @@ const CarouselItem = ({
     ),
   );
 
-export default CarouselItem;
+module.exports = CarouselItem;

@@ -21,7 +21,7 @@ if (shouldAnalyze) {
   plugins.push(new BundleAnalyzerPlugin());
 }
 module.exports = {
-  entry: './src/index.js', //punto de entrada del proyecto
+  entry: './src/frontend/index.js', //punto de entrada del proyecto
   output: {
     //punto de salida del proyecto optimizado y terminado
     path: path.resolve(__dirname, 'dist'),

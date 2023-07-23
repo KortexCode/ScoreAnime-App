@@ -23,5 +23,4 @@ function openModal(video_id) {
   new ModalVideo([button]);
   //Se fuerza el click para general la apertura
   button.click();
-  console.log('open');
 }
