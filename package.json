@@ -2,13 +2,13 @@
   "name": "scoreanime-app",
   "version": "1.0.0",
   "description": "Proyecto de aprendizaje el cual es un sitio web que muestra los animes en tendencia y sus puntuaciones. El objetivo de este taller es aplicar todas las optimizaciones necesarias hasta alcancar el mejor rendimiento posible del sito web.",
-  "main": "serve.js",
   "scripts": {
     "start": "webpack server --config webpack.config.dev.js",
     "dev": "npm run start --watch",
     "build": "webpack --config webpack.config.js",
-    "serve": "serve .7dist",
-    "analyze": "npm run start -- --analyze"
+    "serve": "serve ./dist",
+    "analyze": "npm run start -- --analyze",
+    "ssr": "node ./serve.js"
   },
   "keywords": [],
   "author": "",
