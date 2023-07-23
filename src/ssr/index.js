@@ -1,4 +1,4 @@
-const { IncomingMessage, ServerResponse } = require('http');
+const http = require('http');
 const fs = require('fs');
 const render = require('./render');
 
@@ -16,14 +16,13 @@ async function process(request, response) {
   const htmlText = homeFileBuffer.toString();
   console.log(htmlText);
   const [precontent, postcontent] = htmlText.split(PLACEHOLDER);
-  console.log(ServerResponse);
-  ServerResponse.writeHead(206, { 'Content-Type': 'text/html; charset=utf-8' });
-  ServerResponse.write(precontent);
+  response.writeHead(206, { 'Content-Type': 'text/html; charset=utf-8' });
+  response.write(precontent);
   const content = await render();
   console.log(content);
-  ServerResponse.write(content);
-  ServerResponse.write(postcontent);
-  ServerResponse.end();
+  response.write(content);
+  response.write(postcontent);
+  response.end();
 }
 process();
 
