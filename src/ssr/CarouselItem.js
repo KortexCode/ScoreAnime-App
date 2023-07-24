@@ -1,9 +1,7 @@
 const h = require('hyperscript');
 const formatDistance = require('date-fns/formatDistance');
 const parseIso = require('date-fns/parseISO');
-/* const playIco = require('../../assets/play-icon.png');
-const plusIco = require('../../assets/plus-icon.png'); */
-/* import { observer } from './ImgObserver'; */
+
 //Se obtiene la fecha relativa según la fecha de lanzamiento del anime
 const relativeDate = dateStr => formatDistance(parseIso(dateStr), new Date());
 

@@ -17,4 +17,6 @@ const callback = entries => {
 };
 
 //Se crea un observador sin parámetro de "options"
-export const observer = new IntersectionObserver(callback);
+const observer = new IntersectionObserver(callback);
+
+export default observer;
