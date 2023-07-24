@@ -11,7 +11,6 @@ const callback = entries => {
       } else {
         img.setAttribute('src', src);
       }
-
       observer.unobserve(img);
     });
 };

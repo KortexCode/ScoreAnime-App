@@ -16,10 +16,8 @@ const carouselContainer = document.querySelectorAll('.carousel__container');
 const carouselContainerList = Array.from(carouselContainer);
 //A cada uno le será agregado un manejador de evento
 carouselContainerList.forEach(container => {
-  console.log('leidos');
   container.addEventListener('click', event => {
     //Aquí están los ids de la etiquetas que se desean. Esto es usadoparaevitar magic strings
-    console.log('leidos');
     const ids = {
       tagA: 'carusel-item__youtube-link',
       tagImg: 'carusel-item__play-icon-img',
@@ -28,7 +26,6 @@ carouselContainerList.forEach(container => {
     const id = event.target.id;
     if (id === ids.tagA || id === ids.tagImg) {
       //Si se cumple se evitará la carga de la imagen y se enviará el"event"
-      console.log('prevenido');
       event.preventDefault();
       import(/* webpackChunkName: "modal" */ './trailerModal')
         .then(({ modalListener }) => {
