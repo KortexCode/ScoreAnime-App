@@ -5,28 +5,25 @@ const parseIso = require('date-fns/parseISO');
 //Se obtiene la fecha relativa según la fecha de lanzamiento del anime
 const relativeDate = dateStr => formatDistance(parseIso(dateStr), new Date());
 
-const EMPTYIMG =
-  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=';
+const PLACEHOLDER = './assets/carousel-item-placeholder.png';
 
 //Función crea la etique <source>
 const sourceCreator = imageUrlSmall => {
   const img = h('source', {
-    srcset: EMPTYIMG,
+    srcset: PLACEHOLDER,
     media: '(max-width: 600px)',
     'data-src': imageUrlSmall,
   });
-  /* observer.observe(img); */ //Observador de la etiqueda
   return img;
 };
 
 //Función creadora de etiqueta <img>
 const imgCreator = imageUrl => {
   const img = h('img.carousel-item__img', {
-    src: EMPTYIMG,
+    src: PLACEHOLDER,
     alt: 'anime image',
     'data-src': imageUrl,
   });
-  /* observer.observe(img); */
   return img;
 };
 

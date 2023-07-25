@@ -1,6 +1,7 @@
 import observer from './ImgObserver';
 import '../../assets/play-icon.png';
 import '../../assets/plus-icon.png';
+import '../../assets/carousel-item-placeholder.png';
 import '../../styles.css';
 /* Este es el JS el cual será usado por el Browser para funciones adicionales
 e interactividad */

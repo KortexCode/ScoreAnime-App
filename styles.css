@@ -271,8 +271,9 @@ footer a:hover {
   opacity: 1;
 }
 
-.carusel-item__icon {
+a .carusel-item__icon {
   width: 20px;
+  height: 20px;
 }
 
 /* Title */
