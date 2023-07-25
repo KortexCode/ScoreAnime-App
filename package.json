@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.config.js",
     "serve": "serve ./dist",
     "analyze": "npm run start -- --analyze",
-    "ssr": "node ./serve.js"
+    "ssr": "node ./serve.js",
+    "ssg":"node ./export.js"
   },
   "keywords": [],
   "author": "",
