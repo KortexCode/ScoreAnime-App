@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack server --config webpack.config.dev.js",
     "dev": "npm run start --watch",
-    "build": "webpack --config webpack.config.js",
+    "build": "node ./export.js && webpack --config webpack.config.js",
     "serve": "serve ./dist",
     "analyze": "npm run start -- --analyze",
     "ssr": "node ./serve.js",

@@ -21,8 +21,8 @@ ${precontent}
 ${content}
 ${postcontent}
   `;
-
   fs.writeFileSync('index.html', html);
+  console.log('🚀Index generado con éxito');
 }
 
 // Run
