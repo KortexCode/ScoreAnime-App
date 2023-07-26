@@ -14,10 +14,13 @@ const plugins = [
   new HtmlWebpackPlugin({
     title: 'Score Anime',
     inject: true,
+    filename: 'index.[contenthash].html',
     template: './index.html',
+    excludeChunks: ['sw'],
+    hash: true,
   }),
   new MiniCssExtractPlugin({
-    filename: 'style.css',
+    filename: '[styles].[contenthash].css',
   }),
   new CleanWebpackPlugin(),
 ];
@@ -29,13 +32,13 @@ if (shouldAnalyze) {
 }
 
 module.exports = {
-  entry: './src/frontend/index.js', //punto de entrada del proyecto
+  entry: { main: './src/frontend/index.js', sw: './sw.js' }, //punto de entrada del proyecto
   output: {
     //punto de salida del proyecto optimizado y terminado
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js', //nombre del archivo optimizado(el index.js)
+    filename: '[name].[contenthash].js', //nombre del archivo optimizado(el index.js)
     publicPath: './',
-    assetModuleFilename: 'assets/[hash][ext]',
+    assetModuleFilename: 'assets/[name].[hash][ext]',
   },
   mode: 'production',
   resolve: {

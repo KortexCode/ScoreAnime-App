@@ -8,20 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" href="favicon.ico" />
     <!-- pre conexiones -->
-    <link
-      href="https://fonts.gstatic.com/"
-      rel="preconnect"
-      crossorigin
-    />
-    <link
-      href="https://fonts.gstatic.com/"
-      rel="dns-prefetch"
-    />
-    <link
-      href="https://kitsu.io/"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin />
+    <link href="https://fonts.gstatic.com/" rel="dns-prefetch" />
+    <link href="https://kitsu.io/" rel="preconnect" crossorigin />
     <link href="https://kitsu.io/" rel="dns-prefetch" />
     <!-- Scripts -->
     <script defer src="https://unpkg.com/unfetch/polyfill"></script>
@@ -86,6 +75,13 @@
         <a href="https://kitsu.io" target="_blank">Kitsu</a>
       </p>
     </footer>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('./sw.js')
+          .catch(error => console.log(error));
+      }
+    </script>
   </body>
 </html>
 
