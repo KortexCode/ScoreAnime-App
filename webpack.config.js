@@ -35,7 +35,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js', //nombre del archivo optimizado(el index.js)
     publicPath: './',
-    assetModuleFilename: 'assets/[name][ext]',
+    assetModuleFilename: 'assets/[hash][ext]',
   },
   mode: 'production',
   resolve: {
