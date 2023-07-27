@@ -14,7 +14,7 @@ const plugins = [
   new HtmlWebpackPlugin({
     title: 'Score Anime',
     inject: true,
-    filename: 'index.[contenthash].html',
+    filename: 'index.html',
     template: './index.html',
     excludeChunks: ['sw'],
     hash: true,
@@ -36,7 +36,7 @@ module.exports = {
   output: {
     //punto de salida del proyecto optimizado y terminado
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js', //nombre del archivo optimizado(el index.js)
+    filename: '[name].js', //nombre del archivo optimizado(el index.js)
     publicPath: './',
     assetModuleFilename: 'assets/[name].[hash][ext]',
   },

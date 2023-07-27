@@ -1,17 +1,16 @@
 const CACHE_NAME = 'app-v1';
-console.log('llegó');
+
 self.addEventListener('fetch', myCustomFetch); // Activa la función de la cache
-/* self.addEventListener('activate', clearCache) */ // Actualiza cache
+self.addEventListener('activate', clearCache); // Actualiza cache
 
 function myCustomFetch(event) {
   const response = cacheOrFetch(event);
-  console.log('solcitudes', event);
   event.respondWith(response);
 }
 
 async function cacheOrFetch(event) {
   // event.request contiene la informacion del request, i.e.: la url
-  // 1. Verificar la respuesta que necesitamos ya se encuentra en el cache
+  // 1. Verificar si la respuesta que necesitamos ya se encuentra en el cache
   let response = await caches.match(event.request);
 
   // 2. Si es cierto, retornamos la respuesta desde el cache > end
@@ -32,10 +31,10 @@ async function cacheOrFetch(event) {
   }
 
   // 4. Cuando tengamos la respuesta devuelta del servidor, la almacenamos
-  //    en el cache para proximas respuestas.
+  //  en el cache para proximas respuestas.
   const clonedResponse = response.clone(); // Stream que solo se puede leer una vez
   caches.open(CACHE_NAME).then(cache => {
-    cache.put(event.request, clonedResponse);
+    cache.put(event.request, clonedResponse); //Agrega a la caché esta respuesta
   });
 
   return response;
