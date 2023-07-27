@@ -21,11 +21,11 @@ if (shouldAnalyze) {
   plugins.push(new BundleAnalyzerPlugin());
 }
 module.exports = {
+  entry: './src/frontend/index.js', //punto de entrada del proyecto
   output: {
     //punto de salida del proyecto optimizado y terminado
-    entry: ['./src/frontend/index.js'], //punto de entrada del proyecto
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js', //nombre del archivo optimizado(el index.js)
+    filename: 'main.js', //nombre del archivo optimizado(el index.js)
     publicPath: '/',
   },
   mode: 'development',
@@ -61,7 +61,7 @@ module.exports = {
   plugins,
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, './'),
     },
     compress: true,
     historyApiFallback: true, //para tener un historial
