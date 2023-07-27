@@ -36,3 +36,10 @@ carouselContainerList.forEach(container => {
     }
   });
 });
+
+//lÓGICA PARA EL INPUT DEL BUSCADOR
+const searchInput = document.getElementById('search-input-js');
+searchInput.addEventListener('keyup', readingSearched);
+function readingSearched(event) {
+  console.log('leyendo', event.target.value);
+}
